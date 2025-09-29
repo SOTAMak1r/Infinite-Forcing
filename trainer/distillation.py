@@ -36,6 +36,13 @@ class Trainer:
         self.causal = config.causal
         self.disable_wandb = config.disable_wandb
 
+        self.gradient_accumulation_steps = getattr(config, "gradient_accumulation_steps", 1)
+        
+        if self.gradient_accumulation_steps > 1:
+            self.config.log_iters = self.config.log_iters * self.gradient_accumulation_steps
+            print(f"INFO: Using gradient accumulation with {self.gradient_accumulation_steps} steps. log_iters = {self.config.log_iters}")
+
+
         # use a random seed for the training
         if config.seed == 0:
             random_seed = torch.randint(0, 10000000, (1,), device=self.device)
@@ -250,6 +257,9 @@ class Trainer:
                 initial_latent=image_latent if self.config.i2v else None
             )
 
+            if self.gradient_accumulation_steps > 1:
+                generator_loss = generator_loss / self.gradient_accumulation_steps
+            
             generator_loss.backward()
             generator_grad_norm = self.model.generator.clip_grad_norm_(
                 self.max_grad_norm_generator)
@@ -269,6 +279,8 @@ class Trainer:
             clean_latent=clean_latent,
             initial_latent=image_latent if self.config.i2v else None
         )
+        if self.gradient_accumulation_steps > 1:
+            critic_loss = critic_loss / self.gradient_accumulation_steps
 
         critic_loss.backward()
         critic_grad_norm = self.model.fake_score.clip_grad_norm_(
@@ -313,7 +325,8 @@ class Trainer:
         start_step = self.step
 
         while True:
-            TRAIN_GENERATOR = self.step % self.config.dfake_gen_update_ratio == 0
+            # TRAIN_GENERATOR = self.step % self.config.dfake_gen_update_ratio == 0
+            TRAIN_GENERATOR = self.step % (self.config.dfake_gen_update_ratio * self.gradient_accumulation_steps) == 0
 
             # Train the generator
             if TRAIN_GENERATOR:
@@ -335,6 +348,19 @@ class Trainer:
             extras_list.append(extra)
             critic_log_dict = merge_dict_list(extras_list)
             self.critic_optimizer.step()
+
+            # MODIFIED: Perform optimizer step and zero grad only after N accumulation steps
+            if self.step % self.gradient_accumulation_steps == 0:
+                # Step and clear grads for Generator
+                if TRAIN_GENERATOR:
+                    self.generator_optimizer.step()
+                    if self.generator_ema is not None:
+                        self.generator_ema.update(self.model.generator)
+                    self.generator_optimizer.zero_grad(set_to_none=True)
+
+                # Step and clear grads for Critic
+                self.critic_optimizer.step()
+                self.critic_optimizer.zero_grad(set_to_none=True)
 
             # Increment the step since we finished gradient update
             self.step += 1

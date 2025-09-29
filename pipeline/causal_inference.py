@@ -186,7 +186,7 @@ class CausalInferencePipeline(torch.nn.Module):
 
             # Step 3.1: Spatial denoising loop
             for index, current_timestep in enumerate(self.denoising_step_list):
-                print(f"current_timestep: {current_timestep}")
+                # print(f"current_timestep: {current_timestep}")
                 # set current timestep
                 timestep = torch.ones(
                     [batch_size, current_num_frames],

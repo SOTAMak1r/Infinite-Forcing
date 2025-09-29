@@ -49,6 +49,7 @@ else:
     world_size = 1
     set_seed(args.seed)
 
+gpu = device
 print(f'Free VRAM {get_cuda_free_memory_gb(gpu)} GB')
 low_memory = get_cuda_free_memory_gb(gpu) < 40
 
@@ -68,7 +69,17 @@ else:
 
 if args.checkpoint_path:
     state_dict = torch.load(args.checkpoint_path, map_location="cpu")
-    pipeline.generator.load_state_dict(state_dict['generator' if not args.use_ema else 'generator_ema'])
+    # pipeline.generator.load_state_dict(state_dict['generator' if not args.use_ema else 'generator_ema'])
+    try:
+        state_dict = state_dict['generator' if not args.use_ema else 'generator_ema']
+    except:
+        state_dict = state_dict['generator']
+    state_dict = {k.replace('._fsdp_wrapped_module', ''):v for k, v in state_dict.items()}
+    pipeline.generator.load_state_dict(state_dict)
+
+    checkpoint_step = os.path.basename(os.path.dirname(args.checkpoint_path))
+    checkpoint_step = checkpoint_step.split('_')[-1]
+
 
 pipeline = pipeline.to(dtype=torch.bfloat16)
 if low_memory:
@@ -100,6 +111,7 @@ else:
 dataloader = DataLoader(dataset, batch_size=1, sampler=sampler, num_workers=0, drop_last=False)
 
 # Create output directory (only on main process to avoid race conditions)
+args.output_folder = os.path.join(args.output_folder, checkpoint_step)
 if local_rank == 0:
     os.makedirs(args.output_folder, exist_ok=True)
 
@@ -183,10 +195,10 @@ for i, batch_data in tqdm(enumerate(dataloader), disable=(local_rank != 0)):
     # Save the video if the current prompt is not a dummy prompt
     if idx < num_prompts:
         model = "regular" if not args.use_ema else "ema"
-        for seed_idx in range(args.num_samples):
-            # All processes save their videos
-            if args.save_with_index:
-                output_path = os.path.join(args.output_folder, f'{idx}-{seed_idx}_{model}.mp4')
-            else:
-                output_path = os.path.join(args.output_folder, f'{prompt[:100]}-{seed_idx}.mp4')
-            write_video(output_path, video[seed_idx], fps=16)
+        # for seed_idx in range(args.num_samples):
+        if args.num_samples == 1:  # must true
+            output_path = os.path.join(args.output_folder, f'{prompt[:50]}.mp4')
+            write_video(output_path, video[0], fps=16)
+
+if dist.is_initialized():
+    dist.barrier()

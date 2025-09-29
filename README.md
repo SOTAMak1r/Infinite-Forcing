@@ -1,42 +1,124 @@
 <p align="center">
-<h1 align="center">Self Forcing</h1>
-<h3 align="center">Bridging the Train-Test Gap in Autoregressive Video Diffusion</h3>
-</p>
+<img src="assets/logo.png" width=20%>
+<p>
+
 <p align="center">
-  <p align="center">
-    <a href="https://www.xunhuang.me/">Xun Huang</a><sup>1</sup>
-    ·
-    <a href="https://zhengqili.github.io/">Zhengqi Li</a><sup>1</sup>
-    ·
-    <a href="https://guandehe.github.io/">Guande He</a><sup>2</sup>
-    ·
-    <a href="https://mingyuanzhou.github.io/">Mingyuan Zhou</a><sup>2</sup>
-    ·
-    <a href="https://research.adobe.com/person/eli-shechtman/">Eli Shechtman</a><sup>1</sup><br>
-    <sup>1</sup>Adobe Research <sup>2</sup>UT Austin
-  </p>
-  <h3 align="center"><a href="https://arxiv.org/abs/2506.08009">Paper</a> | <a href="https://self-forcing.github.io">Website</a> | <a href="https://huggingface.co/gdhe17/Self-Forcing/tree/main">Models (HuggingFace)</a></h3>
+<h1 align="center">Towards Infinite-Long Video Generation</h1>
 </p>
 
----
+
+
+## Preliminary: Self-Forcing
 
 Self Forcing trains autoregressive video diffusion models by **simulating the inference process during training**, performing autoregressive rollout with KV caching. It resolves the train-test distribution mismatch and enables **real-time, streaming video generation on a single RTX 4090** while matching the quality of state-of-the-art diffusion models.
 
----
+
+## Difference with Self-Forcing: V-sink
+
+> <b>TL;DR: (1) Treat the initially generated `sink_size` frames as V-sink; (2) Incorporate V-sink into training; (3) Apply RoPE operation after retrieving KV cache. </b>
+
+We found that the Self-Forcing repository has implemented `sink_size`, but the specific usage method is not discussed in their paper.  By printing the attention map, we did not observe phenomena similar to the [attention_sink](https://github.com/mit-han-lab/streaming-llm/tree/main) in LLMs. The experimental configuration for the attention map below is in `configs/self_forcing_dmd_frame1.yaml`. 
+
+<table style="text-align: center; margin-left: auto; margin-right: auto;">
+<tr>
+<td>
+<img src="./assets/frame5_step_0_pooled.png"></img>
+</td>
+<td>
+<img src="./assets/frame10_step_0_pooled.png"></img>
+</td>
+<td>
+<img src="./assets/frame20_step_0_pooled.png"></img>
+</td>
+<td>
+<img src="./assets/frame40_step_0_pooled.png"></img>
+</td>
+</tr>
+
+<tr>
+<td style="text-align: center;">frame 5</td>
+<td>frame 10</td>
+<td>frame 20</td>
+<td>frame 40</td>
+</tr>
+</table>
+
+When `sink_size = 1` and inference exceeds the training length (> 20 frame), it can be observed that the model assigns a larger attention weight to the frame serving as the sink only in the final block. However, in experiments, we found that even without the appearance of an attention map similar to that in LLMs, using the first `sink_size` frames as sinks can **significantly improve visual quality**.
+
+> We interpret this as the first `sink_size` frames providing a larger memory context, enabling the model to access earlier memories, which helps mitigate exposure bias (AKA drift).
+
+Moreover, the implementation in the Self-Forcing repository applies the RoPE operation before storing the KV cache. We observed that when the inference length becomes too long, the effectiveness of the sink diminishes. Therefore, adopting an approach similar to [streamingLLM](https://github.com/mit-han-lab/streaming-llm/tree/main), we incorporated the sink frame (which we refer to as `V-sink`) into the training process and **moved the RoPE operation to after retrieving the KV cache**. The specific implementation can be found in the `CausalWanSelfAttention` class in `wan/modules/causal_model.py`.
+
+> V-sink differs from attention sink in LLMs. V-sink is a complete frame, whereas in LLMs the sink is the first token of the sequence (typically \<bos\>). Thus, their working mechanisms are distinct.  
 
 
-https://github.com/user-attachments/assets/7548c2db-fe03-4ba8-8dd3-52d2c6160739
+## Comparison
+
+We compared the inference performance of:
+  - the original Self-Forcing implementation (Left)
+  - Self-Forcing w/ V-sink (Mid)
+  - **Infinite-Forcing (Right)**
 
 
-## Requirements
-We tested this repo on the following setup:
-* Nvidia GPU with at least 24 GB memory (RTX 4090, A100, and H100 are tested).
-* Linux operating system.
-* 64 GB RAM.
+<video src="https://github.com/user-attachments/assets/6c8bc09d-5955-47af-a824-f45f4bf4b6ef" autoplay muted loop playsinline></video>
 
-Other hardware setup could also work but hasn't been tested.
+<video src="https://github.com/user-attachments/assets/5aca1280-e957-4124-9e56-c2d00f2b583b" autoplay muted loop playsinline></video>
 
-## Installation
+
+## Gallery
+
+
+<table style="text-align: left; margin-left: auto; margin-right: auto;">
+
+<tr>
+<td>
+<video src="https://github.com/user-attachments/assets/9afefed1-e8a0-4f8d-9bb0-68800703ed22" autoplay muted loop playsinline></video>
+</td>
+<td>
+<video src="https://github.com/user-attachments/assets/fbb029f8-ffba-474d-aa4f-7e32f342186c" autoplay muted loop playsinline></video>
+</td>
+</tr>
+
+<tr>
+<td>
+<video src="https://github.com/user-attachments/assets/10046e9e-f5e4-4591-b3a4-7fd0932b4465" autoplay muted loop playsinline></video>
+</td>
+<td>
+<video src="https://github.com/user-attachments/assets/4cf89920-21d2-4b38-b1e5-13eea321d4c7" autoplay muted loop playsinline></video>
+</td>
+</tr>
+
+<tr>
+<td>
+<video src="https://github.com/user-attachments/assets/5f15141d-5d03-4dfa-8ec5-4043a61fae94" autoplay muted loop playsinline></video>
+</td>
+<td>
+<video src="https://github.com/user-attachments/assets/e5f845a4-eede-4b70-8bbd-d96585e842cc" autoplay muted loop playsinline></video>
+</td>
+</tr>
+
+<tr>
+<td>
+<video src="https://github.com/user-attachments/assets/0126f5f2-1cce-4cc6-a724-223cb2d816b4" autoplay muted loop playsinline></video>
+</td>
+<td>
+<video src="https://github.com/user-attachments/assets/47bed94a-413f-428a-b72d-a976eda303e3" autoplay muted loop playsinline></video>
+</td>
+</tr>
+
+</table>
+
+
+
+## Application: interactive video generation
+
+Since Infinite-Forcing / Self-Forcing ultimately produces a causal autoregressive video generation model, we can modify the text prompts during the generation process to control the video output in real-time.
+
+
+
+
+
+## Installation (follow Self-Forcing)
 Create a conda environment and install dependencies:
 ```
 conda create -n self_forcing python=3.10 -y
@@ -50,55 +132,44 @@ python setup.py develop
 ### Download checkpoints
 ```
 huggingface-cli download Wan-AI/Wan2.1-T2V-1.3B --local-dir-use-symlinks False --local-dir wan_models/Wan2.1-T2V-1.3B
-huggingface-cli download gdhe17/Self-Forcing checkpoints/self_forcing_dmd.pt --local-dir .
+huggingface-cli download SOTAMak1r/Infinite-Forcing --local-dir checkpoints/
 ```
-
-### GUI demo
-```
-python demo.py
-```
-Note:
-* **Our model works better with long, detailed prompts** since it's trained with such prompts. We will integrate prompt extension into the codebase (similar to [Wan2.1](https://github.com/Wan-Video/Wan2.1/tree/main?tab=readme-ov-file#2-using-prompt-extention)) in the future. For now, it is recommended to use third-party LLMs (such as GPT-4o) to extend your prompt before providing to the model.
-* You may want to adjust FPS so it plays smoothly on your device.
-* The speed can be improved by enabling `torch.compile`, [TAEHV-VAE](https://github.com/madebyollin/taehv/), or using FP8 Linear layers, although the latter two options may sacrifice quality. It is recommended to use `torch.compile` if possible and enable TAEHV-VAE if further speedup is needed.
 
 ### CLI Inference
 Example inference script using the chunk-wise autoregressive checkpoint trained with DMD:
 ```
 python inference.py \
-    --config_path configs/self_forcing_dmd.yaml \
-    --output_folder videos/self_forcing_dmd \
-    --checkpoint_path checkpoints/self_forcing_dmd.pt \
+    --config_path configs/self_forcing_dmd_vsink1.yaml \
+    --output_folder videos/self_forcing_dmd_vsink1 \
+    --checkpoint_path path/to/your/pt/checkpoint.pt \
     --data_path prompts/MovieGenVideoBench_extended.txt \
     --use_ema
 ```
-Other config files and corresponding checkpoints can be found in [configs](configs) folder and our [huggingface repo](https://huggingface.co/gdhe17/Self-Forcing/tree/main/checkpoints).
 
 ## Training
-### Download text prompts and ODE initialized checkpoint
-```
-huggingface-cli download gdhe17/Self-Forcing checkpoints/ode_init.pt --local-dir .
-huggingface-cli download gdhe17/Self-Forcing vidprom_filtered_extended.txt --local-dir prompts
-```
-Note: Our training algorithm (except for the GAN version) is data-free (**no video data is needed**). For now, we directly provide the ODE initialization checkpoint and will add more instructions on how to perform ODE initialization in the future (which is identical to the process described in the [CausVid](https://github.com/tianweiy/CausVid) repo).
+### Download text prompts and ODE initialized checkpoint 
 
-### Self Forcing Training with DMD
+Follow Self-Forcing
+
+### Infinite Forcing Training with V-sink
 ```
-torchrun --nnodes=8 --nproc_per_node=8 --rdzv_id=5235 \
+torchrun --nnodes=2 --nproc_per_node=8 \
   --rdzv_backend=c10d \
   --rdzv_endpoint $MASTER_ADDR \
   train.py \
-  --config_path configs/self_forcing_dmd.yaml \
-  --logdir logs/self_forcing_dmd \
+  --config_path configs/self_forcing_dmd_vsink1.yaml \
+  --logdir logs/self_forcing_dmd_vsink1 \
   --disable-wandb
 ```
-Our training run uses 600 iterations and completes in under 2 hours using 64 H100 GPUs. By implementing gradient accumulation, it should be possible to reproduce the results in less than 16 hours using 8 H100 GPUs.
+
+Due to resource constraints, we trained the model using 16 A800 GPUs with a gradient accumulation of 4 to simulate the original Self-Forcing configuration.
+
 
 ## Acknowledgements
 This codebase is built on top of the open-source implementation of [CausVid](https://github.com/tianweiy/CausVid) by [Tianwei Yin](https://tianweiy.github.io/) and the [Wan2.1](https://github.com/Wan-Video/Wan2.1) repo.
 
 ## Citation
-If you find this codebase useful for your research, please kindly cite our paper:
+If you find this codebase useful for your research, please kindly cite:
 ```
 @article{huang2025selfforcing,
   title={Self Forcing: Bridging the Train-Test Gap in Autoregressive Video Diffusion},
@@ -106,4 +177,5 @@ If you find this codebase useful for your research, please kindly cite our paper
   journal={arXiv preprint arXiv:2506.08009},
   year={2025}
 }
+
 ```
