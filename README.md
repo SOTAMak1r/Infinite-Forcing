@@ -6,7 +6,11 @@
 <h1 align="center">Towards Infinite-Long Video Generation</h1>
 </p>
 
+<div align="center">
 
+[![huggingface weights](https://img.shields.io/badge/%F0%9F%A4%97%20Weights-huggingface-yellow)](https://huggingface.co/SOTAMak1r/Infinite-Forcing/tree/main)&nbsp;
+
+</div>
 
 ## Preliminary: Self-Forcing
 
