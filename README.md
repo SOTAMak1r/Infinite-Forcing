@@ -68,8 +68,7 @@ We compared the inference performance of:
 ## Gallery
 
 
-<table style="text-align: left; margin-left: auto; margin-right: auto;">
-
+<table style="width: 100%; text-align: left; margin-left: auto; margin-right: auto;">
 <tr>
 <td>
 <video src="https://github.com/user-attachments/assets/9afefed1-e8a0-4f8d-9bb0-68800703ed22" autoplay muted loop playsinline></video>
