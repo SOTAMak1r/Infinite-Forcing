@@ -54,7 +54,7 @@ Moreover, the implementation in the Self-Forcing repository applies the RoPE ope
 
 ## Comparison
 
-We compared the inference performance of:
+We compared the inference performance of three methods:
   - the original Self-Forcing implementation (Left)
   - Self-Forcing w/ V-sink (Mid)
   - **Infinite-Forcing (Right)**
@@ -64,12 +64,17 @@ We compared the inference performance of:
 
 <video src="https://github.com/user-attachments/assets/5aca1280-e957-4124-9e56-c2d00f2b583b" autoplay muted loop playsinline></video>
 
+<video src="https://github.com/user-attachments/assets/82fd5270-c1ec-46c7-8da5-32b1a8b18fcb" autoplay muted loop playsinline></video>
+
+<video src="https://github.com/user-attachments/assets/d514caa4-20fc-4a13-b5d7-5f5f164a51e5" autoplay muted loop playsinline></video>
+
+<video src="https://github.com/user-attachments/assets/c8ecb294-dcb2-452a-ab06-2f3c8e3116fe" autoplay muted loop playsinline></video>
 
 ## Gallery
 
 
 <table class="center" border="0" style="width: 100%; text-align: left;">
-
+<!-- 1 -->
 <tr>
 <td>
 <video src="https://github.com/user-attachments/assets/9afefed1-e8a0-4f8d-9bb0-68800703ed22" autoplay muted loop playsinline></video>
@@ -78,25 +83,25 @@ We compared the inference performance of:
 <video src="https://github.com/user-attachments/assets/fbb029f8-ffba-474d-aa4f-7e32f342186c" autoplay muted loop playsinline></video>
 </td>
 </tr>
-
+<!-- 2 -->
 <tr>
 <td>
-<video src="https://github.com/user-attachments/assets/83332e08-5bb4-46a8-ac6e-4a0c9c06663a" autoplay muted loop playsinline></video>
+<video src="https://github.com/user-attachments/assets/04cc84f2-94d7-477b-a954-1bf83f9ff7ae" autoplay muted loop playsinline></video>
 </td>
 <td>
 <video src="https://github.com/user-attachments/assets/10046e9e-f5e4-4591-b3a4-7fd0932b4465" autoplay muted loop playsinline></video>
 </td>
 </tr>
-
+<!-- 3 -->
 <tr>
 <td>
 <video src="https://github.com/user-attachments/assets/4cf89920-21d2-4b38-b1e5-13eea321d4c7" autoplay muted loop playsinline></video>
 </td>
 <td>
-<video src="https://github.com/user-attachments/assets/e84d536a-93df-426c-8564-b8b96846f27e" autoplay muted loop playsinline></video>
+<video src="https://github.com/user-attachments/assets/b532e1a9-8010-45ed-9725-2fc8732c918c" autoplay muted loop playsinline></video>
 </td>
 </tr>
-
+<!-- 4 -->
 <tr>
 <td>
 <video src="https://github.com/user-attachments/assets/5f15141d-5d03-4dfa-8ec5-4043a61fae94" autoplay muted loop playsinline></video>
@@ -105,68 +110,67 @@ We compared the inference performance of:
 <video src="https://github.com/user-attachments/assets/e5f845a4-eede-4b70-8bbd-d96585e842cc" autoplay muted loop playsinline></video>
 </td>
 </tr>
-
+<!-- 5 -->
 <tr>
 <td>
-<video src="https://github.com/user-attachments/assets/9d11fb96-226d-4326-adf1-35548893600f" autoplay muted loop playsinline></video>
+<video src="https://github.com/user-attachments/assets/03cd1169-536d-4f09-9792-5b039ff05015" autoplay muted loop playsinline></video>
 </td>
 <td>
 <video src="https://github.com/user-attachments/assets/0126f5f2-1cce-4cc6-a724-223cb2d816b4" autoplay muted loop playsinline></video>
 </td>
 </tr>
-
+<!-- 6 -->
 <tr>
 <td>
 <video src="https://github.com/user-attachments/assets/47bed94a-413f-428a-b72d-a976eda303e3" autoplay muted loop playsinline></video>
 </td>
 <td>
-<video src="https://github.com/user-attachments/assets/54eee320-8dd5-4f3b-b636-0fb6bead618b" autoplay muted loop playsinline></video>
+<video src="https://github.com/user-attachments/assets/184759e7-d4d3-4401-bc60-ff8241de5b4d" autoplay muted loop playsinline></video>
 </td>
 </tr>
-
+<!-- 7 -->
 <tr>
 <td>
-<video src="https://github.com/user-attachments/assets/6206c70b-fd95-4778-88a2-4d63bc715f66" autoplay muted loop playsinline></video>
+<video src="https://github.com/user-attachments/assets/0cf44b7c-bcb0-41f2-a46c-2b873eb0932f" autoplay muted loop playsinline></video>
 </td>
 <td>
-<video src="https://github.com/user-attachments/assets/b992d1fd-8b3d-4011-a343-8d9153b82044" autoplay muted loop playsinline></video>
+<video src="https://github.com/user-attachments/assets/2b3c7102-b440-4c24-ad7c-968c41208af5" autoplay muted loop playsinline></video>
 </td>
 </tr>
-
+<!-- 8 -->
 <tr>
 <td>
-<video src="https://github.com/user-attachments/assets/853ec583-da6f-4886-a6be-bab20deff61c" autoplay muted loop playsinline></video>
+<video src="https://github.com/user-attachments/assets/986c6d77-30e5-414c-9e51-862f60f0808a" autoplay muted loop playsinline></video>
 </td>
 <td>
-<video src="https://github.com/user-attachments/assets/5c64c58b-a4e7-43fd-a15d-83703399c0b3" autoplay muted loop playsinline></video>
+<video src="https://github.com/user-attachments/assets/4f33e58c-53c6-4e6f-84c0-e94abeab4f5e" autoplay muted loop playsinline></video>
 </td>
 </tr>
-
+<!-- 9 -->
 <tr>
 <td>
-<video src="https://github.com/user-attachments/assets/53d930f9-bc11-4188-a6f8-fb24ecf8306d" autoplay muted loop playsinline></video>
+<video src="https://github.com/user-attachments/assets/df3ba546-4be9-4800-ad1b-7a3095295c46" autoplay muted loop playsinline></video>
 </td>
 <td>
-<video src="https://github.com/user-attachments/assets/0c9bc8de-5b20-4a75-a9af-a1f2d871d437" autoplay muted loop playsinline></video>
+<video src="https://github.com/user-attachments/assets/6c45ec9c-4e06-443b-86d6-7800f0d32f9e" autoplay muted loop playsinline></video>
 </td>
 </tr>
-
-
+<!-- 10 -->
 <tr>
 <td>
-<video src="https://github.com/user-attachments/assets/4417ec00-9e6c-4826-9c7c-dbf8308d2237" autoplay muted loop playsinline></video>
+<video src="https://github.com/user-attachments/assets/f51fda74-3ef7-45d2-b49b-d820a2811116" autoplay muted loop playsinline></video>
 </td>
 <td>
-<video src="https://github.com/user-attachments/assets/1ce9c8c6-beff-4cbe-a07e-44c3e71eeaae" autoplay muted loop playsinline></video>
+<video src="https://github.com/user-attachments/assets/1e9daea8-7669-4860-8e0e-fcf5890ebf79" autoplay muted loop playsinline></video>
 </td>
 </tr>
-
+<!-- 11 -->
 <tr>
 <td>
-<video src="https://github.com/user-attachments/assets/678f52d6-4f18-4089-ab67-20faf8f9bc55" autoplay muted loop playsinline></video>
+<video src="https://github.com/user-attachments/assets/5d107da0-74fd-4ce9-a942-1c6b2b7d10b1" autoplay muted loop playsinline></video>
 </td>
 <td>
-<video src="https://github.com/user-attachments/assets/a4769c1e-9d5c-43b3-94b4-c2cba728b96d" autoplay muted loop playsinline></video>
+<video src="https://github.com/user-attachments/assets/eafa278e-63d3-4550-b326-9d0b85564e3e" autoplay muted loop playsinline></video>
 </td>
 </tr>
 
