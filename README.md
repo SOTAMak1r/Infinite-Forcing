@@ -237,10 +237,9 @@ torchrun --nnodes=2 --nproc_per_node=8 \
 Due to resource constraints, we trained the model using 16 A800 GPUs with a gradient accumulation of 4 to simulate the original Self-Forcing configuration.
 
 ## 💬 Discussion
-- [2025.9.30] We observed that incorporating V-sink results in a reduction of dynamic motion in the generated frames, and this issue worsens as training steps increase. We hypothesize that this occurs because the base model's target distribution includes a portion of static scenes, causing the model to "cut corners" by learning that static videos yield lower loss values—ultimately converging to a suboptimal sub-distribution. Additionally, the introduction of V-sink tends to make subsequent videos overly resemble the initial frames (Brainstorm: Could this potentially serve as a memory mechanism for video generation based on world models?).  
+- [2025.9.30] We observed that incorporating V-sink results in a reduction of dynamic motion in the generated frames, and this issue worsens as training steps increase. We hypothesize that this occurs because the base model's target distribution includes a portion of static scenes, causing the model to "cut corners" by learning that static videos yield lower loss values—ultimately converging to a suboptimal sub-distribution. Additionally, the introduction of V-sink tends to make subsequent videos overly resemble the initial frames (Brainstorm: Could this potentially serve as a memory mechanism for video-generation-based world models?).  
 
 We will continue to update! Stay tuned!
-
 
 
 ## Acknowledgements
@@ -256,5 +255,4 @@ If you find this codebase useful for your research, please kindly cite:
   journal={arXiv preprint arXiv:2506.08009},
   year={2025}
 }
-
 ```
