@@ -68,88 +68,88 @@ We compared the inference performance of:
 ## Gallery
 
 
-<table style="width: 100%; text-align: left; margin-left: auto; margin-right: auto;">
+<table style="width: 100%; max-width: 100%; table-layout: fixed; text-align: left; margin: 0 auto;">
 <tr>
-<td>
+<td style="width: 33.33%;">
 <video src="https://github.com/user-attachments/assets/9afefed1-e8a0-4f8d-9bb0-68800703ed22" autoplay muted loop playsinline></video>
 </td>
-<td>
+<td style="width: 33.33%;">
 <video src="https://github.com/user-attachments/assets/fbb029f8-ffba-474d-aa4f-7e32f342186c" autoplay muted loop playsinline></video>
 </td>
-<td>
+<td style="width: 33.33%;">
 <video src="https://github.com/user-attachments/assets/83332e08-5bb4-46a8-ac6e-4a0c9c06663a" autoplay muted loop playsinline></video>
 </td>
 </tr>
 
 <tr>
-<td>
+<td style="width: 33.33%;">
 <video src="https://github.com/user-attachments/assets/10046e9e-f5e4-4591-b3a4-7fd0932b4465" autoplay muted loop playsinline></video>
 </td>
-<td>
+<td style="width: 33.33%;">
 <video src="https://github.com/user-attachments/assets/4cf89920-21d2-4b38-b1e5-13eea321d4c7" autoplay muted loop playsinline></video>
 </td>
-<td>
+<td style="width: 33.33%;">
 <video src="https://github.com/user-attachments/assets/e84d536a-93df-426c-8564-b8b96846f27e" autoplay muted loop playsinline></video>
 </td>
 </tr>
 
 <tr>
-<td>
+<td style="width: 33.33%;">
 <video src="https://github.com/user-attachments/assets/5f15141d-5d03-4dfa-8ec5-4043a61fae94" autoplay muted loop playsinline></video>
 </td>
-<td>
+<td style="width: 33.33%;">
 <video src="https://github.com/user-attachments/assets/e5f845a4-eede-4b70-8bbd-d96585e842cc" autoplay muted loop playsinline></video>
 </td>
-<td>
+<td style="width: 33.33%;">
 <video src="https://github.com/user-attachments/assets/9d11fb96-226d-4326-adf1-35548893600f" autoplay muted loop playsinline></video>
 </td>
 </tr>
 
 <tr>
-<td>
+<td style="width: 33.33%;">
 <video src="https://github.com/user-attachments/assets/0126f5f2-1cce-4cc6-a724-223cb2d816b4" autoplay muted loop playsinline></video>
 </td>
-<td>
+<td style="width: 33.33%;">
 <video src="https://github.com/user-attachments/assets/47bed94a-413f-428a-b72d-a976eda303e3" autoplay muted loop playsinline></video>
 </td>
-<td>
+<td style="width: 33.33%;">
 <video src="https://github.com/user-attachments/assets/54eee320-8dd5-4f3b-b636-0fb6bead618b" autoplay muted loop playsinline></video>
 </td>
 </tr>
 
 <tr>
-<td>
+<td style="width: 33.33%;">
 <video src="https://github.com/user-attachments/assets/6206c70b-fd95-4778-88a2-4d63bc715f66" autoplay muted loop playsinline></video>
 </td>
-<td>
+<td style="width: 33.33%;">
 <video src="https://github.com/user-attachments/assets/b992d1fd-8b3d-4011-a343-8d9153b82044" autoplay muted loop playsinline></video>
 </td>
-<td>
+<td style="width: 33.33%;">
 <video src="https://github.com/user-attachments/assets/853ec583-da6f-4886-a6be-bab20deff61c" autoplay muted loop playsinline></video>
 </td>
 </tr>
 
 <tr>
-<td>
+<td style="width: 33.33%;">
 <video src="https://github.com/user-attachments/assets/5c64c58b-a4e7-43fd-a15d-83703399c0b3" autoplay muted loop playsinline></video>
 </td>
-<td>
+<td style="width: 33.33%;">
 <video src="https://github.com/user-attachments/assets/53d930f9-bc11-4188-a6f8-fb24ecf8306d" autoplay muted loop playsinline></video>
 </td>
-<td>
+<td style="width: 33.33%;">
 <video src="https://github.com/user-attachments/assets/0c9bc8de-5b20-4a75-a9af-a1f2d871d437" autoplay muted loop playsinline></video>
 </td>
 </tr>
 
 
 <tr>
-<td>
+<td style="width: 33.33%;">
 <video src="https://github.com/user-attachments/assets/4417ec00-9e6c-4826-9c7c-dbf8308d2237" autoplay muted loop playsinline></video>
 </td>
-<td>
+<td style="width: 33.33%;">
 <video src="https://github.com/user-attachments/assets/1ce9c8c6-beff-4cbe-a07e-44c3e71eeaae" autoplay muted loop playsinline></video>
 </td>
-<td>
+<td style="width: 33.33%;">
 <video src="https://github.com/user-attachments/assets/678f52d6-4f18-4089-ab67-20faf8f9bc55" autoplay muted loop playsinline></video>
 </td>
 </tr>
