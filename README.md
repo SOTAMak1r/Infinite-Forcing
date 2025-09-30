@@ -77,15 +77,18 @@ We compared the inference performance of:
 <td>
 <video src="https://github.com/user-attachments/assets/fbb029f8-ffba-474d-aa4f-7e32f342186c" autoplay muted loop playsinline></video>
 </td>
-<td>
-<video src="https://github.com/user-attachments/assets/83332e08-5bb4-46a8-ac6e-4a0c9c06663a" autoplay muted loop playsinline></video>
-</td>
 </tr>
 
 <tr>
 <td>
+<video src="https://github.com/user-attachments/assets/83332e08-5bb4-46a8-ac6e-4a0c9c06663a" autoplay muted loop playsinline></video>
+</td>
+<td>
 <video src="https://github.com/user-attachments/assets/10046e9e-f5e4-4591-b3a4-7fd0932b4465" autoplay muted loop playsinline></video>
 </td>
+</tr>
+
+<tr>
 <td>
 <video src="https://github.com/user-attachments/assets/4cf89920-21d2-4b38-b1e5-13eea321d4c7" autoplay muted loop playsinline></video>
 </td>
@@ -101,15 +104,18 @@ We compared the inference performance of:
 <td>
 <video src="https://github.com/user-attachments/assets/e5f845a4-eede-4b70-8bbd-d96585e842cc" autoplay muted loop playsinline></video>
 </td>
-<td>
-<video src="https://github.com/user-attachments/assets/9d11fb96-226d-4326-adf1-35548893600f" autoplay muted loop playsinline></video>
-</td>
 </tr>
 
 <tr>
 <td>
+<video src="https://github.com/user-attachments/assets/9d11fb96-226d-4326-adf1-35548893600f" autoplay muted loop playsinline></video>
+</td>
+<td>
 <video src="https://github.com/user-attachments/assets/0126f5f2-1cce-4cc6-a724-223cb2d816b4" autoplay muted loop playsinline></video>
 </td>
+</tr>
+
+<tr>
 <td>
 <video src="https://github.com/user-attachments/assets/47bed94a-413f-428a-b72d-a976eda303e3" autoplay muted loop playsinline></video>
 </td>
@@ -125,15 +131,18 @@ We compared the inference performance of:
 <td>
 <video src="https://github.com/user-attachments/assets/b992d1fd-8b3d-4011-a343-8d9153b82044" autoplay muted loop playsinline></video>
 </td>
-<td>
-<video src="https://github.com/user-attachments/assets/853ec583-da6f-4886-a6be-bab20deff61c" autoplay muted loop playsinline></video>
-</td>
 </tr>
 
 <tr>
 <td>
+<video src="https://github.com/user-attachments/assets/853ec583-da6f-4886-a6be-bab20deff61c" autoplay muted loop playsinline></video>
+</td>
+<td>
 <video src="https://github.com/user-attachments/assets/5c64c58b-a4e7-43fd-a15d-83703399c0b3" autoplay muted loop playsinline></video>
 </td>
+</tr>
+
+<tr>
 <td>
 <video src="https://github.com/user-attachments/assets/53d930f9-bc11-4188-a6f8-fb24ecf8306d" autoplay muted loop playsinline></video>
 </td>
@@ -150,8 +159,14 @@ We compared the inference performance of:
 <td>
 <video src="https://github.com/user-attachments/assets/1ce9c8c6-beff-4cbe-a07e-44c3e71eeaae" autoplay muted loop playsinline></video>
 </td>
+</tr>
+
+<tr>
 <td>
 <video src="https://github.com/user-attachments/assets/678f52d6-4f18-4089-ab67-20faf8f9bc55" autoplay muted loop playsinline></video>
+</td>
+<td>
+<video src="https://github.com/user-attachments/assets/a4769c1e-9d5c-43b3-94b4-c2cba728b96d" autoplay muted loop playsinline></video>
 </td>
 </tr>
 
