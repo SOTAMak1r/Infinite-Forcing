@@ -12,6 +12,14 @@
 
 </div>
 
+
+<div align="center">
+
+<video src="https://github.com/user-attachments/assets/9d155d04-39a5-4419-bd83-bb892947d702" autoplay muted loop playsinline></video>
+
+</div>
+
+
 ## 👀 Preliminary: Self-Forcing
 
 Self Forcing trains autoregressive video diffusion models by **simulating the inference process during training**, performing autoregressive rollout with KV caching. It resolves the train-test distribution mismatch and enables **real-time, streaming video generation on a single RTX 4090** while matching the quality of state-of-the-art diffusion models.
