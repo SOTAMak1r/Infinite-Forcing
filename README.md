@@ -12,12 +12,12 @@
 
 </div>
 
-## Preliminary: Self-Forcing
+## 👀 Preliminary: Self-Forcing
 
 Self Forcing trains autoregressive video diffusion models by **simulating the inference process during training**, performing autoregressive rollout with KV caching. It resolves the train-test distribution mismatch and enables **real-time, streaming video generation on a single RTX 4090** while matching the quality of state-of-the-art diffusion models.
 
 
-## Difference with Self-Forcing: V-sink
+## 🦄 Difference with Self-Forcing: V-sink
 
 > <b>TL;DR: (1) Treat the initially generated `sink_size` frames as V-sink; (2) Incorporate V-sink into training; (3) Apply RoPE operation after retrieving KV cache. </b>
 
@@ -74,7 +74,7 @@ We compared the inference performance of three methods:
 
 <video src="https://github.com/user-attachments/assets/c8ecb294-dcb2-452a-ab06-2f3c8e3116fe" autoplay muted loop playsinline></video>
 
-## Gallery
+## 📹️ Gallery
 
 
 <table class="center" border="0" style="width: 100%; text-align: left;">
@@ -190,7 +190,7 @@ To update demos!
 
 
 
-## Installation
+## 🛠️ Installation
 Create a conda environment and install dependencies:
 ```
 conda create -n self_forcing python=3.10 -y
@@ -200,7 +200,7 @@ pip install flash-attn --no-build-isolation
 python setup.py develop
 ```
 
-## Quick Start
+## 🚀 Quick Start
 ### Download checkpoints
 ```
 huggingface-cli download Wan-AI/Wan2.1-T2V-1.3B --local-dir-use-symlinks False --local-dir wan_models/Wan2.1-T2V-1.3B
@@ -218,7 +218,7 @@ python inference.py \
     --use_ema
 ```
 
-## Training
+## 🚂 Training
 ### Download text prompts and ODE initialized checkpoint 
 
 Follow Self-Forcing
@@ -236,10 +236,12 @@ torchrun --nnodes=2 --nproc_per_node=8 \
 
 Due to resource constraints, we trained the model using 16 A800 GPUs with a gradient accumulation of 4 to simulate the original Self-Forcing configuration.
 
-## Discussion
+## 💬 Discussion
 - [2025.9.30] We observed that incorporating V-sink results in a reduction of dynamic motion in the generated frames, and this issue worsens as training steps increase. We hypothesize that this occurs because the base model's target distribution includes a portion of static scenes, causing the model to "cut corners" by learning that static videos yield lower loss values—ultimately converging to a suboptimal sub-distribution. Additionally, the introduction of V-sink tends to make subsequent videos overly resemble the initial frames (Brainstorm: Could this potentially serve as a memory mechanism for video generation based on world models?).  
 
 We will continue to update! Stay tuned!
+
+
 
 ## Acknowledgements
 This codebase is built on top of the open-source implementation of [CausVid](https://github.com/tianweiy/CausVid) by [Tianwei Yin](https://tianweiy.github.io/) and the [Wan2.1](https://github.com/Wan-Video/Wan2.1) repo.
