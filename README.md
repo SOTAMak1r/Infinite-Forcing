@@ -231,7 +231,7 @@ We initially used the **initial prompt** and switched to the **interaction promp
 
   - **Interaction prompt**: In the same macro shot, gravity reverses. The water elegantly pulls upwards out of the glass, morphing into a perfect, wobbling sphere that hovers mid-air. The coffee beans and a corner of the newspaper also begin to float upwards in a slow, graceful ballet. The condensation droplets on the glass now drift away like tiny planets.
 
-<video src="https://github.com/user-attachments/assets/5e4c610a-9604-4ad5-9292-ff73a56bc4e8" autoplay muted loop playsinline></video>
+<video src="https://github.com/user-attachments/assets/9e6f666c-80d9-4950-b123-88c9c3e79e47" autoplay muted loop playsinline></video>
 
 
 ## 🛠️ Installation
