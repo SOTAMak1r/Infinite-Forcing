@@ -194,8 +194,44 @@ We compared the inference performance of three methods:
 
 Since Infinite-Forcing / Self-Forcing ultimately produces a causal autoregressive video generation model, we can modify the text prompts during the generation process to control the video output in real-time.
 
-To update demos!
+We initially used the **initial prompt** and switched to the **interaction prompt** midway through inference.
 
+
+- demo1
+
+  - **Initial prompt**: Wide shot of an elegant urban café: A sharp-dressed businessman in a navy suit focused on a sleek silver laptop, steam rising from a white ceramic coffee cup beside him. Soft morning light streams through large windows, casting warm reflections on polished wooden tables. Background features blurred patrons and baristas in motion, creating a sophisticated yet bustling atmosphere. Cinematic shallow depth of field, muted earth tones, 4K realism.
+
+  - **Interaction prompt**: Medium close-up in a medieval tavern: An elderly wizard with a long grey beard studies an ancient leather-bound spellbook under flickering candlelight. A luminous purple crystal ball pulses on the rough oak table, casting dancing shadows on stone walls. Smoky atmosphere with floating dust particles, barrels and copper mugs in background. Dark fantasy style, volumetric lighting, mystical glow, detailed texture of wrinkled hands and aged parchment, 35mm film grain.
+
+<video src="https://github.com/user-attachments/assets/81fdbfe5-3974-4191-ba1c-51803a0f677c" autoplay muted loop playsinline></video>
+
+
+- demo2
+
+  - **Initial prompt**: A cinematic wide shot of a serene forest river, its crystal-clear water flowing gently over smooth stones. Sunlight filters through the canopy, creating dancing caustics on the riverbed. The camera tracks slowly alongside the flow.
+
+
+  - **Interaction prompt**: In the same wide shot, a wave of freezing energy passes through the frame. The flowing water instantly crystallizes into a solid, glistening sheet of ice, trapping air bubbles inside. The camera continues its track, now revealing a solitary red fox cautiously stepping onto the frozen surface, its breath visible in the suddenly cold air.
+
+<video src="https://github.com/user-attachments/assets/70d15211-3fd4-47d3-a71f-439c51bd79a5" autoplay muted loop playsinline></video>
+
+- demo3
+
+  - **Initial prompt**: A dynamic drone shot circles a bustling medieval town square at high noon. People in colorful period clothing crowd the market stalls. The sun is bright, casting sharp, short shadows. Flags flutter in a gentle breeze.
+
+
+  - **Interaction prompt**: From the same drone perspective, day rapidly shifts to a deep, starry night. The scene is now illuminated by the warm glow of torches in iron sconces and a cool, full moon. The bustling crowd is replaced by a few mysterious, cloaked figures moving through the long, dramatic shadows. The earlier gentle breeze is now a visible mist of cold breath.
+
+<video src="https://github.com/user-attachments/assets/2650ba15-6ab1-44bb-8d2b-48451992c2a5" autoplay muted loop playsinline></video>
+
+- demo4
+
+  - **Initial prompt**: A macro, still-life shot of a half-full glass of water on a rustic wooden table. Morning light streams in from a window, highlighting the condensation on the glass. A few coffee beans and a newspaper are also on the table.
+
+
+  - **Interaction prompt**: In the same macro shot, gravity reverses. The water elegantly pulls upwards out of the glass, morphing into a perfect, wobbling sphere that hovers mid-air. The coffee beans and a corner of the newspaper also begin to float upwards in a slow, graceful ballet. The condensation droplets on the glass now drift away like tiny planets.
+
+<video src="https://github.com/user-attachments/assets/5e4c610a-9604-4ad5-9292-ff73a56bc4e8" autoplay muted loop playsinline></video>
 
 
 ## 🛠️ Installation
