@@ -6,14 +6,26 @@
 <h1 align="center">Towards Infinite-Long Video Generation</h1>
 </p>
 
+<div align="center">
+
+[![huggingface weights](https://img.shields.io/badge/%F0%9F%A4%97%20Weights-huggingface-yellow)](https://huggingface.co/SOTAMak1r/Infinite-Forcing/tree/main)&nbsp;
+
+</div>
 
 
-## Preliminary: Self-Forcing
+<div align="center">
+
+<video src="https://github.com/user-attachments/assets/9d155d04-39a5-4419-bd83-bb892947d702" autoplay muted loop playsinline></video>
+
+</div>
+
+
+## 👀 Preliminary: Self-Forcing
 
 Self Forcing trains autoregressive video diffusion models by **simulating the inference process during training**, performing autoregressive rollout with KV caching. It resolves the train-test distribution mismatch and enables **real-time, streaming video generation on a single RTX 4090** while matching the quality of state-of-the-art diffusion models.
 
 
-## Difference with Self-Forcing: V-sink
+## 🦄 Difference with Self-Forcing: V-sink
 
 > <b>TL;DR: (1) Treat the initially generated `sink_size` frames as V-sink; (2) Incorporate V-sink into training; (3) Apply RoPE operation after retrieving KV cache. </b>
 
@@ -54,7 +66,7 @@ Moreover, the implementation in the Self-Forcing repository applies the RoPE ope
 
 ## Comparison
 
-We compared the inference performance of:
+We compared the inference performance of three methods:
   - the original Self-Forcing implementation (Left)
   - Self-Forcing w/ V-sink (Mid)
   - **Infinite-Forcing (Right)**
@@ -64,12 +76,17 @@ We compared the inference performance of:
 
 <video src="https://github.com/user-attachments/assets/5aca1280-e957-4124-9e56-c2d00f2b583b" autoplay muted loop playsinline></video>
 
+<video src="https://github.com/user-attachments/assets/82fd5270-c1ec-46c7-8da5-32b1a8b18fcb" autoplay muted loop playsinline></video>
 
-## Gallery
+<video src="https://github.com/user-attachments/assets/d514caa4-20fc-4a13-b5d7-5f5f164a51e5" autoplay muted loop playsinline></video>
+
+<video src="https://github.com/user-attachments/assets/c8ecb294-dcb2-452a-ab06-2f3c8e3116fe" autoplay muted loop playsinline></video>
+
+## 📹️ Gallery
 
 
-<table style="text-align: left; margin-left: auto; margin-right: auto;">
-
+<table class="center" border="0" style="width: 100%; text-align: left;">
+<!-- 1 -->
 <tr>
 <td>
 <video src="https://github.com/user-attachments/assets/9afefed1-e8a0-4f8d-9bb0-68800703ed22" autoplay muted loop playsinline></video>
@@ -78,16 +95,25 @@ We compared the inference performance of:
 <video src="https://github.com/user-attachments/assets/fbb029f8-ffba-474d-aa4f-7e32f342186c" autoplay muted loop playsinline></video>
 </td>
 </tr>
-
+<!-- 2 -->
 <tr>
+<td>
+<video src="https://github.com/user-attachments/assets/04cc84f2-94d7-477b-a954-1bf83f9ff7ae" autoplay muted loop playsinline></video>
+</td>
 <td>
 <video src="https://github.com/user-attachments/assets/10046e9e-f5e4-4591-b3a4-7fd0932b4465" autoplay muted loop playsinline></video>
 </td>
+</tr>
+<!-- 3 -->
+<tr>
 <td>
 <video src="https://github.com/user-attachments/assets/4cf89920-21d2-4b38-b1e5-13eea321d4c7" autoplay muted loop playsinline></video>
 </td>
+<td>
+<video src="https://github.com/user-attachments/assets/b532e1a9-8010-45ed-9725-2fc8732c918c" autoplay muted loop playsinline></video>
+</td>
 </tr>
-
+<!-- 4 -->
 <tr>
 <td>
 <video src="https://github.com/user-attachments/assets/5f15141d-5d03-4dfa-8ec5-4043a61fae94" autoplay muted loop playsinline></video>
@@ -96,13 +122,67 @@ We compared the inference performance of:
 <video src="https://github.com/user-attachments/assets/e5f845a4-eede-4b70-8bbd-d96585e842cc" autoplay muted loop playsinline></video>
 </td>
 </tr>
-
+<!-- 5 -->
 <tr>
+<td>
+<video src="https://github.com/user-attachments/assets/03cd1169-536d-4f09-9792-5b039ff05015" autoplay muted loop playsinline></video>
+</td>
 <td>
 <video src="https://github.com/user-attachments/assets/0126f5f2-1cce-4cc6-a724-223cb2d816b4" autoplay muted loop playsinline></video>
 </td>
+</tr>
+<!-- 6 -->
+<tr>
 <td>
 <video src="https://github.com/user-attachments/assets/47bed94a-413f-428a-b72d-a976eda303e3" autoplay muted loop playsinline></video>
+</td>
+<td>
+<video src="https://github.com/user-attachments/assets/184759e7-d4d3-4401-bc60-ff8241de5b4d" autoplay muted loop playsinline></video>
+</td>
+</tr>
+<!-- 7 -->
+<tr>
+<td>
+<video src="https://github.com/user-attachments/assets/0cf44b7c-bcb0-41f2-a46c-2b873eb0932f" autoplay muted loop playsinline></video>
+</td>
+<td>
+<video src="https://github.com/user-attachments/assets/2b3c7102-b440-4c24-ad7c-968c41208af5" autoplay muted loop playsinline></video>
+</td>
+</tr>
+<!-- 8 -->
+<tr>
+<td>
+<video src="https://github.com/user-attachments/assets/986c6d77-30e5-414c-9e51-862f60f0808a" autoplay muted loop playsinline></video>
+</td>
+<td>
+<video src="https://github.com/user-attachments/assets/4f33e58c-53c6-4e6f-84c0-e94abeab4f5e" autoplay muted loop playsinline></video>
+</td>
+</tr>
+<!-- 9 -->
+<tr>
+<td>
+<video src="https://github.com/user-attachments/assets/df3ba546-4be9-4800-ad1b-7a3095295c46" autoplay muted loop playsinline></video>
+</td>
+<td>
+<video src="https://github.com/user-attachments/assets/6c45ec9c-4e06-443b-86d6-7800f0d32f9e" autoplay muted loop playsinline></video>
+</td>
+</tr>
+<!-- 10 -->
+<tr>
+<td>
+<video src="https://github.com/user-attachments/assets/f51fda74-3ef7-45d2-b49b-d820a2811116" autoplay muted loop playsinline></video>
+</td>
+<td>
+<video src="https://github.com/user-attachments/assets/1e9daea8-7669-4860-8e0e-fcf5890ebf79" autoplay muted loop playsinline></video>
+</td>
+</tr>
+<!-- 11 -->
+<tr>
+<td>
+<video src="https://github.com/user-attachments/assets/5d107da0-74fd-4ce9-a942-1c6b2b7d10b1" autoplay muted loop playsinline></video>
+</td>
+<td>
+<video src="https://github.com/user-attachments/assets/eafa278e-63d3-4550-b326-9d0b85564e3e" autoplay muted loop playsinline></video>
 </td>
 </tr>
 
@@ -114,11 +194,11 @@ We compared the inference performance of:
 
 Since Infinite-Forcing / Self-Forcing ultimately produces a causal autoregressive video generation model, we can modify the text prompts during the generation process to control the video output in real-time.
 
+To update demos!
 
 
 
-
-## Installation
+## 🛠️ Installation
 Create a conda environment and install dependencies:
 ```
 conda create -n self_forcing python=3.10 -y
@@ -128,7 +208,7 @@ pip install flash-attn --no-build-isolation
 python setup.py develop
 ```
 
-## Quick Start
+## 🚀 Quick Start
 ### Download checkpoints
 ```
 huggingface-cli download Wan-AI/Wan2.1-T2V-1.3B --local-dir-use-symlinks False --local-dir wan_models/Wan2.1-T2V-1.3B
@@ -146,7 +226,7 @@ python inference.py \
     --use_ema
 ```
 
-## Training
+## 🚂 Training
 ### Download text prompts and ODE initialized checkpoint 
 
 Follow Self-Forcing
@@ -164,10 +244,11 @@ torchrun --nnodes=2 --nproc_per_node=8 \
 
 Due to resource constraints, we trained the model using 16 A800 GPUs with a gradient accumulation of 4 to simulate the original Self-Forcing configuration.
 
-## Discussion
-- [2025.9.30] We observed that incorporating V-sink results in a reduction of dynamic motion in the generated frames, and this issue worsens as training steps increase. We hypothesize that this occurs because the base model's target distribution includes a portion of static scenes, causing the model to "cut corners" by learning that static videos yield lower loss values—ultimately converging to a suboptimal sub-distribution. Additionally, the introduction of V-sink tends to make subsequent videos overly resemble the initial frames (Brainstorm: Could this potentially serve as a memory mechanism for video generation based on world models?).  
+## 💬 Discussion
+- [2025.9.30] We observed that incorporating V-sink results in a reduction of dynamic motion in the generated frames, and this issue worsens as training steps increase. We hypothesize that this occurs because the base model's target distribution includes a portion of static scenes, causing the model to "cut corners" by learning that static videos yield lower loss values—ultimately converging to a suboptimal sub-distribution. Additionally, the introduction of V-sink tends to make subsequent videos overly resemble the initial frames (Brainstorm: Could this potentially serve as a memory mechanism for video-generation-based world models?).  
 
 We will continue to update! Stay tuned!
+
 
 ## Acknowledgements
 This codebase is built on top of the open-source implementation of [CausVid](https://github.com/tianweiy/CausVid) by [Tianwei Yin](https://tianweiy.github.io/) and the [Wan2.1](https://github.com/Wan-Video/Wan2.1) repo.
@@ -182,5 +263,4 @@ If you find this codebase useful for your research, please kindly cite:
   journal={arXiv preprint arXiv:2506.08009},
   year={2025}
 }
-
 ```
