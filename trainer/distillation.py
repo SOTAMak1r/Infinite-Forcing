@@ -330,7 +330,7 @@ class Trainer:
 
             # Train the generator
             if TRAIN_GENERATOR:
-                self.generator_optimizer.zero_grad(set_to_none=True)
+                # self.generator_optimizer.zero_grad(set_to_none=True)
                 extras_list = []
                 batch = next(self.dataloader)
                 extra = self.fwdbwd_one_step(batch, True)
@@ -341,7 +341,7 @@ class Trainer:
                     self.generator_ema.update(self.model.generator)
 
             # Train the critic
-            self.critic_optimizer.zero_grad(set_to_none=True)
+            # self.critic_optimizer.zero_grad(set_to_none=True)
             extras_list = []
             batch = next(self.dataloader)
             extra = self.fwdbwd_one_step(batch, False)
