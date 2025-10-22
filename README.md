@@ -283,7 +283,7 @@ Due to resource constraints, we trained the model using 16 A800 GPUs with a grad
 ## 💬 Discussion
 - [2025.9.30] We observed that incorporating V-sink results in a reduction of dynamic motion in the generated frames, and this issue worsens as training steps increase. We hypothesize that this occurs because the base model's target distribution includes a portion of static scenes, causing the model to "cut corners" by learning that static videos yield lower loss values—ultimately converging to a suboptimal sub-distribution. Additionally, the introduction of V-sink tends to make subsequent videos overly resemble the initial frames (Brainstorm: Could this potentially serve as a memory mechanism for video-generation-based world models?).  
 
-- [2025.10.22] Thanks to [Xianglong](https://github.com/XianglongHe) for helping validate the effectiveness of our method on [matrix-game-v2](https://github.com/SkyworkAI/Matrix-Game/tree/main/Matrix-Game-2). Compared to their Self-Forcing-based baseline, it achieved fewer error accumulations and maintained consistency in scenario style!
+- [2025.10.22] Thanks to [Xianglong](https://github.com/XianglongHe) for helping validate the effectiveness of our method on [matrix-game-v2](https://github.com/SkyworkAI/Matrix-Game/tree/main/Matrix-Game-2). Compared to their Self-Forcing-based baseline, it achieved fewer error accumulations and maintained consistency in scenario style! (Video below at 4x speed)
 
 
 <div align="center">
