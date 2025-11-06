@@ -302,11 +302,19 @@ This codebase is built on top of the open-source implementation of [Self-Forcing
 ## Citation
 If you find this codebase useful for your research, please kindly cite:
 ```
+
 @article{huang2025selfforcing,
   title={Self Forcing: Bridging the Train-Test Gap in Autoregressive Video Diffusion},
   author={Huang, Xun and Li, Zhengqi and He, Guande and Zhou, Mingyuan and Shechtman, Eli},
   journal={arXiv preprint arXiv:2506.08009},
   year={2025}
+}
+
+@misc{infinite-forcing,
+    Author = {Junyi Chen, Zhoujie Fu},
+    Year = {2025},
+    Note = {https://github.com/SOTAMak1r/Infinite-Forcing},
+    Title = {Infinite-Forcing: Towards Infinite-Long Video Generation}
 }
 
 ```
