@@ -311,7 +311,7 @@ If you find this codebase useful for your research, please kindly cite:
 }
 
 @misc{infinite-forcing,
-    Author = {Junyi Chen, Zhoujie Fu},
+    Author = {Junyi Chen, Zhoujie Fu, Xianglong He},
     Year = {2025},
     Note = {https://github.com/SOTAMak1r/Infinite-Forcing},
     Title = {Infinite-Forcing: Towards Infinite-Long Video Generation}
